@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="css/vendor/OverlayScrollbars.min.css" />
 
     <link rel="stylesheet" href="css/vendor/plyr.css" />
+    <link rel="stylesheet" href="css/button_chp.css" />
 
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
@@ -46,6 +47,37 @@
 
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/base/loader.js"></script>
+    <style>/* Styles for the target container */
+      #targetContainer {
+        max-width: 100%;
+        height: 50%;
+        overflow-y: auto; /* Enables scrolling within the container */
+        padding: 1rem;
+        margin: 0 auto; /* Centers the container */
+      }
+      
+      /* Ensure responsiveness and prevent horizontal scroll */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Disable horizontal overflow */
+      }
+      
+      /* Adjust list group styling */
+      .list-group-item {
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .list-group-item:hover {
+        background-color: #f8f9fa;
+      }
+      
+      /* Button styles */
+      .navigation-buttons button {
+        min-width: 120px;
+      }
+      </style>
   </head>
 
   <body>
@@ -425,38 +457,80 @@
           <!-- Title and Top Buttons End -->
 
           <!-- Content Start -->
-          <div class="row d-flex flex-grow-1 overflow-hidden pb-2 h-100">
-            <!-- Player Start -->
-            <div class="col-xl-8 col-xxl-9">
-              <div class="card mb-5 h-100 bg-transparent">
-                
-              </div>
+<div class="row d-flex flex-grow-1 overflow-hidden pb-2 h-100">
+  <!-- Player Start -->
+  <div class="row d-flex flex-grow-1 overflow-hidden pb-2 h-100">
+    <!-- Player Section -->
+    <div
+      id="targetContainer"
+      class="container bg-light rounded shadow p-4"
+      style="max-width: 100%; height: 100%; overflow-y: auto;"
+    >
+      <!-- Navigation Buttons Section (Move it to the top) -->
+      <div class="navigation-buttons d-flex justify-content-between align-items-center mb-4">
+        <button id="prevChapterBtn" class="btn btn-outline-primary arrow-btn" style="display: none;">
+          Previous
+        </button>
+        <span class="text-muted">Navigate through chapters</span>
+        <button id="nextChapterBtn" class="btn btn-primary arrow-btn" style="display: none;">
+          Next
+        </button>
+      </div>
+      <h1 id="chapterTitle" class="h3 text-primary fw-bold  rounded text-center">Chapter Title</h1>
+
+      <!-- Chapter Details Section -->
+      <div id="chapterDetails" class="mb-4 text-center">
+        <p id="chapterDescription" class="text-muted" style="font-style: italic; letter-spacing: 0.5px; line-height: 1.7; margin-bottom: 20px;">
+          This is a description of the current chapter. It provides a brief overview of the content in this section.
+        </p>
+                  This is a description of the current chapter. It provides a brief
+          overview of the content in this section.
+        </p>
+      </div>
+
+      <!-- Dynamic Chapters Section -->
+      <div id="chaptersContainer" class="mb-4">
+        <h2 class="h5 text-secondary fw-bold">Available Chapters</h2>
+        <ul class="list-group">
+          <!-- Placeholder for dynamic chapter content -->
+          <li class="list-group-item text-muted">Chapter 1 - Introduction</li>
+          <li class="list-group-item text-muted">Chapter 2 - Advanced Concepts</li>
+          <li class="list-group-item text-muted">Chapter 3 - Conclusion</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+            <div
+            class="d-none d-xl-flex col-xl-4 col-xxl-3 h-100 scroll-out table-of-contents-scroll ms-auto"
+            id="tableOfContentsColumn"
+          >
+            <div class="d-none d-xl-flex col-xl-4 col-xxl-3 h-100 scroll-out table-of-contents-scroll" id="tableOfContentsColumn">
+              <!-- Content of this will be moved from #tableOfContentsMoveContent div based on the responsive breakpoint.  -->
             </div>
-           <!-- Player Section -->
-<div class="col-xl-8 col-xxl-9">
-  <div class="card mb-5 h-100 bg-transparent">
-    <div class="card-body">
-      <h5 id="chapterTitlePlayer" class="card-title"></h5>
-      <p id="chapterDescriptionPlayer" class="card-text"></p>
+          </div>
+
+        <!-- Modal (Right-aligned) -->
+<div class="modal modal-right fade" id="tableOfContentsModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-end" style="max-width: 400px; width: 100%; margin: 0;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Content</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div id="tableOfContentsMoveContent" data-move-target="#tableOfContentsColumn" data-move-breakpoint="xl">
+          <!-- Table of Contents Start -->
+          <!-- (Content remains the same) -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Modal Body -->
-<div class="modal-body p-0">
-  <h5 id="chapterTitleModal"></h5>
-  <div id="tableOfContentsMoveContent" data-move-target="#tableOfContentsColumn" data-move-breakpoint="xl">
-    <!-- Table of Contents -->
-  </div>
-</div>
 
-                   
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+   
           <!-- Content End -->
         </div>
       </main>
@@ -1085,38 +1159,374 @@
     <script src="js/common.js"></script>
     <script src="js/scripts.js"></script>
     <!-- Page Specific Scripts End -->
+    <script src="java/enroll.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<!-- 
+<div id="moveTarget"></div>
 <script>
-  $(document).ready(function () {
-    // Define course_id and chapter_id dynamically
-    const courseId = 1;  // Replace with the actual course_id
-    const chapterId = 1; // Replace with the actual chapter_id
+  document.addEventListener('DOMContentLoaded', function () {
+  const moveTarget = document.getElementById('moveTarget');
+  if (!moveTarget) {
+    console.error('No target container for move content');
+    return; // Exit if the container is missing
+  }
 
-    // Construct the URL for the API call
-    const url = `/courses/${courseId}/chapters/${chapterId}/`;
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get('course_id');
+  const chapterId = urlParams.get('chapter_id');
 
-    // Fetch data via AJAX
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      success: function (response) {
-        console.log("Data fetched successfully:", response);
+  if (!courseId || !chapterId) {
+    console.error('Course ID or Chapter ID is missing.');
+    alert('Course ID or Chapter ID is missing. Redirecting to the homepage.');
+    return;
+  }
 
-        // Populate the Player section
-        $('#chapterTitlePlayer').text(response.title);
-        $('#chapterDescriptionPlayer').text(response.description);
+  // Fetch CSRF Token from meta tag or cookies
+  function getCsrfToken() {
+    let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]');
+    if (csrfToken) return csrfToken.value;
 
-        // Populate the Modal body
-        $('#chapterTitleModal').text(response.title);
-      },
-      error: function (xhr, status, error) {
-        console.error("Failed to fetch chapter data:", error);
+    let cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith('csrftoken=')) return cookie.substring('csrftoken='.length);
+    }
+    return null;
+  }
+
+  // Fetch Chapter Data
+  async function fetchChaptersData() {
+    const authToken = localStorage.getItem('access_token');
+    const csrfToken = getCsrfToken();
+
+    if (!authToken || !csrfToken) {
+      alert('You must be logged in and have a CSRF token to view the chapters.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/courses/${courseId}/chapters/${chapterId}/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken,
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        alert(data.error || 'An error occurred while fetching the chapters.');
+        return;
       }
-    });
+
+      const data = await response.json();
+      const chapters = data.chapters;
+
+      // Use forEach to iterate over the chapters array
+      chapters.forEach(chapter => {
+        // Check if the current chapter matches the chapterId
+        if (chapter.id == chapterId) {
+          updateChapterUI(chapter);
+          setNavigationButtons(chapters, chapterId);
+        }
+      });
+
+      // If no chapter matches, show an alert
+      const currentChapter = chapters.find(chapter => chapter.id == chapterId);
+      if (!currentChapter) {
+        alert('Chapter not found.');
+      }
+
+    } catch (error) {
+      console.error('Error fetching chapter data:', error);
+      alert('An error occurred while fetching chapter data.');
+    }
+  }
+
+  // Update the UI with Chapter Data
+  function updateChapterUI(chapter) {
+    document.getElementById('chapterTitle').textContent = chapter.title;
+    document.getElementById('chapterDescription').textContent = chapter.description;
+  }
+
+  // Set Previous and Next Chapter Navigation Buttons
+  function setNavigationButtons(chapters, currentChapterId) {
+    const currentIndex = chapters.findIndex(chapter => chapter.id == currentChapterId);
+    const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
+    const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+    toggleNavigationButton('prevChapterBtn', prevChapter);
+    toggleNavigationButton('nextChapterBtn', nextChapter);
+  }
+
+  // Toggle visibility of navigation buttons
+  function toggleNavigationButton(buttonId, chapter) {
+    const button = document.getElementById(buttonId);
+    if (chapter) {
+      button.style.display = 'inline-block';
+      button.onclick = () => navigateToChapter(chapter.id);
+    } else {
+      button.style.display = 'none';
+    }
+  }
+
+  // Navigate to the Chapter Page
+  function navigateToChapter(newChapterId) {
+    window.location.href = `/chapter-page?course_id=${courseId}&chapter_id=${newChapterId}`;
+  }
+
+  // Handle Enrollment Button for Last Chapter
+  function showEnrollmentOption() {
+    const chapterDetails = document.getElementById('chapterDetails');
+    if (chapterDetails) {
+      const enrollBtn = document.createElement('button');
+      enrollBtn.textContent = 'Enroll in this course';
+      enrollBtn.classList.add('enroll-btn');
+      chapterDetails.appendChild(enrollBtn);
+
+      enrollBtn.onclick = enrollInCourse;
+    } else {
+      console.error('Target container "chapterDetails" is missing.');
+    }
+  }
+
+  // Enroll in Course
+  async function enrollInCourse() {
+    const authToken = localStorage.getItem('access_token');
+    const csrfToken = getCsrfToken();
+
+    if (!authToken || !csrfToken) {
+      alert('You must be logged in and have a CSRF token to enroll.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/enroll/${courseId}/`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken,
+        },
+      });
+
+      if (response.ok) {
+        alert('You have successfully enrolled in the course!');
+        window.location.href = `/course/${courseId}/dashboard/`;
+      } else {
+        const data = await response.json();
+        alert(data.error || 'An error occurred while enrolling.');
+      }
+    } catch (error) {
+      console.error('Error enrolling in course:', error);
+      alert('An error occurred while enrolling in the course.');
+    }
+  }
+
+  // Initialize
+  fetchChaptersData();
+});  </script> -->
+<!-- <script>
+  // ithanu entroll chapter
+  // Function to get the CSRF token from the meta tag or cookies
+  function getCsrfToken() {
+    let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]');
+    if (csrfToken) return csrfToken.value;
+
+    let cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith('csrftoken=')) return cookie.substring('csrftoken='.length);
+    }
+    return null;
+  }
+
+  // Fetch courseId and chapterId from the URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get('course_id');
+
+  // Handle the case when chapterId is null or undefined
+  //if (!chapterId || chapterId === 'null') {
+   // chapterId = null;  // Set to null if chapterId is missing or 'null'
+    //alert('Chapter ID is missing or null.');
+ // }
+
+  // Fetch Chapter Data
+  async function fetchChaptersData() {
+    if (!courseId) {
+      alert('Course ID or Chapter ID is missing.');
+      return;
+    }
+
+    const authToken = localStorage.getItem('access_token');
+    const csrfToken = getCsrfToken();
+
+    if (!authToken || !csrfToken) {
+      alert('You must be logged in and have a CSRF token to view the chapters.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/courses/${courseId}/enroll/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken,
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        alert(data.error || 'An error occurred while fetching the chapters.');
+        return;
+      }
+
+      const data = await response.json();
+      
+      // Log the fetched data to inspect its contents
+      console.log(data);
+
+      const chapters = data.chapters;
+
+      // Use forEach to iterate over the chapters array
+      chapters.forEach(chapter => {
+        // Check if the current chapter matches the chapterId
+        if (chapter.id == chapterId) {
+          updateChapterUI(chapter);
+          setNavigationButtons(chapters, chapterId);
+        }
+      });
+
+      // If no chapter matches, show an alert
+      const currentChapter = chapters.find(chapter => chapter.id == chapterId);
+      if (!currentChapter) {
+        alert('Chapter not found.');
+      }
+
+    } catch (error) {
+      console.error('Error fetching chapter data:', error);
+      alert('An error occurred while fetching chapter data.');
+    }
+  }
+
+  // Automatically call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function () {
+    fetchChaptersData();
   });
+</script> -->
+
+
+<script>
+  // Function to get the CSRF token from the meta tag or cookies
+  function getCsrfToken() {
+    let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]');
+    if (csrfToken) return csrfToken.value;
+
+    let cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith('csrftoken=')) return cookie.substring('csrftoken='.length);
+    }
+    return null;
+  }
+
+  // Function to render chapter details dynamically
+  function renderChapter(chapter) {
+    // Set chapter title and description dynamically
+    document.getElementById('chapterTitle').textContent = chapter.title;
+    document.getElementById('chapterDescription').textContent = chapter.description;
+
+    // Clear previous content in chapters container
+    const chaptersContainer = document.getElementById('chaptersContainer');
+    chaptersContainer.innerHTML = ''; // Clear the previous content
+
+    // Render the current chapter dynamically (for testing)
+    const chapterDiv = document.createElement('div');
+    chapterDiv.classList.add('chapter');
+    chapterDiv.innerHTML = `
+      <h2>${''}</h2>
+      <p>${''}</p>
+    `;
+    chaptersContainer.appendChild(chapterDiv);
+  }
+
+  // Function to set the navigation buttons
+  function setNavigationButtons(chapters, currentChapterIndex) {
+    const prevButton = document.getElementById('prevChapterBtn');
+    const nextButton = document.getElementById('nextChapterBtn');
+
+    // Show previous button if not on the first chapter
+    if (currentChapterIndex > 0) {
+      prevButton.style.display = 'inline-block';
+      prevButton.onclick = () => {
+        currentChapterIndex--;
+        renderChapter(chapters[currentChapterIndex]);
+        setNavigationButtons(chapters, currentChapterIndex);
+      };
+    } else {
+      prevButton.style.display = 'none';
+    }
+
+    // Show next button if not on the last chapter
+    if (currentChapterIndex < chapters.length - 1) {
+      nextButton.style.display = 'inline-block';
+      nextButton.onclick = () => {
+        currentChapterIndex++;
+        renderChapter(chapters[currentChapterIndex]);
+        setNavigationButtons(chapters, currentChapterIndex);
+      };
+    } else {
+      nextButton.style.display = 'none';
+    }
+  }
+
+  // Function to fetch course data
+  async function fetchCourseData(courseId) {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/courses/${courseId}/enroll/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'X-CSRFToken': getCsrfToken(),  // Get CSRF token
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        alert(data.error || 'An error occurred while fetching the course data.');
+        return;
+      }
+
+      const data = await response.json();
+      const chapters = data.chapters;
+
+      // Start with the first chapter
+      let currentChapterIndex = 0;
+      renderChapter(chapters[currentChapterIndex]);
+      setNavigationButtons(chapters, currentChapterIndex);
+      
+    } catch (error) {
+      console.error('Error fetching course data:', error);
+      alert('An error occurred while fetching course data.');
+    }
+  }
+
+  // Fetch course data using courseId from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get('course_id');  // Get course_id from URL params
+
+  if (courseId) {
+    fetchCourseData(courseId);  // Fetch course data
+  } else {
+    alert('Course ID is missing.');
+  }
 </script>
+
 
   </body>
 </html>

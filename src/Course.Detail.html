@@ -36,6 +36,7 @@
     <!-- Vendor Styles Start -->
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="css/vendor/OverlayScrollbars.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="css/vendor/plyr.css" />
 
@@ -43,10 +44,12 @@
     <!-- Template Base Styles Start -->
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Template Base Styles End -->
+    <script src="Java/csrf.js"></script>  
+    <link rel="stylesheet" href="css/imagec.css" />
 
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/base/loader.js"></script>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
 
   </head>
 
@@ -398,7 +401,8 @@
             <div class="row">
               <!-- Title Start -->
               <div class="col-12 col-sm-6">
-                <h1 class="mb-0 pb-0 display-4" id="title">Advanced Techniques with Gulpjs</h1>
+                <h1 id="courseTitle" class="course-title">Course Title</h1>
+
                 <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                   <ul class="breadcrumb pt-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -408,19 +412,13 @@
               </div>
               <!-- Title End -->
 
-           <!-- Top Buttons Start -->
-<div class="col-12 col-sm-6 d-flex align-items-start justify-content-end">
-  <!-- Start Now Start -->
-  <a href="Misc.Player.html" 
-  id="enrollNow" 
-  class="btn btn-primary btn-icon btn-icon-start w-100 w-sm-auto" 
-  data-course-id="1"> <!-- Replace 1 with the dynamic course_id -->
-  <i data-acorn-icon="chevron-right"></i>
-  <span>ENROLL NOW</span>
-</a>
-
-
-</div> 
+              <!-- Top Buttons Start -->
+              <div class="col-12 col-sm-6 d-flex align-items-start justify-content-end">
+                <!-- Start Now Start -->
+                <a href="#"  id="enrollNow" class="btn btn-primary btn-icon btn-icon-start w-100 w-sm-auto">
+                  <i data-acorn-icon="chevron-right"></i>
+                  <span>ENROLL NOW</span>
+                </a>
                 <!-- Start Now End -->
               </div>
               <!-- Top Buttons End -->
@@ -435,213 +433,41 @@
             <div class="col-12 col-xxl-8 mb-5">
               <!-- Preview Start -->
               <h2 class="small-title">Preview</h2>
-              <div class="card mb-5">
-                <div class="card-img-top">
-                  <video class="player sh-50 cover" poster="img/course/large/course-1.webp" id="videoPlayer">
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-                  </video>
+              <div class="card mb-5 ">
+                <div class="card-img-top ">
+                  <div id="courseImagesContainer"></div>
                 </div>
                 <div class="card-body">
-                  <h6 id="courseTitle">Course Title</h6>
-                  <p class="mb-4" id="courseDescription">Loading description...</p>
-                  <!-- Additional sections can be added here -->
-              </div>
-              
-                <div class="card-footer border-0 pt-0">
-                  <div class="row align-items-center">
-                    <div class="col-6">
-                      <div class="d-flex align-items-center">
-                        <div class="sw-5 d-inline-block position-relative me-3">
-                          <img src="img/profile/profile-1.webp" class="img-fluid rounded-xl" alt="thumb" />
-                        </div>
-                        <div class="d-inline-block">
-                          <a href="#">Olli Hawkins</a>
-                          <div class="text-muted text-small">Development Lead</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-6 text-muted">
-                      <div class="row g-0 justify-content-end">
-                        <div class="col-auto pe-3">
-                          <i data-acorn-icon="eye" class="text-primary me-1" data-acorn-size="15"></i>
-                          <span class="align-middle">4.8K</span>
-                        </div>
-                        <div class="col-auto">
-                          <i data-acorn-icon="message" class="text-primary me-1" data-acorn-size="15"></i>
-                          <span class="align-middle">12</span>
-                        </div>
+                  <p id="courseDescription" class="course-description" style="font-size: 16px; color: #f0eded; margin: 10px 0;">
+                    <i class="fas fa-book" style="margin-right: 8px;"></i>Course Description
+                  </p>
+                  
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Preview End -->
-
+              Preview End
+              <!-- <div class="course-container text-center">
+                Enroll Button -->
+                <!-- <a href="#" id="enrollNow" class="btn btn-primary btn-icon btn-icon-start">
+                  <i data-acorn-icon="chevron-right"></i>
+                  <span>ENROLL NOW</span>
+                </a> -->
+              
+                <!-- Course Title -->
+              
+                <!-- Course Description -->
+              
               <!-- Table of Contents Start -->
               <h2 class="small-title">Table of Contents</h2>
               <div class="card mb-5">
-                <div class="card-body">
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1"></div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                    </div>
-                    <div class="col mb-4">
-                      <div class="h-100">
-                        <div class="d-flex flex-column justify-content-start">
-                          <div class="d-flex flex-column">
-                            <p class="heading">01. Dashboards</p>
-                            <ul class="list-unstyled">
-                              <li>- Danish brownie fruitcake tootsie</li>
-                              <li>- Fruitcake tart dessert</li>
-                              <li>- Bar carrot cake</li>
-                              <li>- Snaps muffin macaroon tiramisu</li>
-                              <li>- Ice cream marshmallow</li>
-                              <li>- Plum caramels fruitcake</li>
-                              <li>- Chocolate bar carrot cake</li>
-                              <li>- Cotton candy gummies</li>
-                              <li>- Danish cake gummies jelly</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1 position-relative justify-content-center">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                    </div>
-                    <div class="col mb-4">
-                      <div class="h-100">
-                        <div class="d-flex flex-column">
-                          <p class="heading">02. Applications</p>
-                          <ul class="list-unstyled">
-                            <li>- Ice cream marshmallow</li>
-                            <li>- Plum caramels fruitcake</li>
-                            <li>- Chocolate bar carrot cake</li>
-                            <li>- Danish brownie fruitcake tootsie</li>
-                            <li>- Fruitcake tart dessert</li>
-                            <li>- Bar carrot cake</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1 position-relative justify-content-center">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                    </div>
-                    <div class="col mb-4">
-                      <div class="h-100">
-                        <div class="d-flex flex-column">
-                          <p class="heading">03. Interface</p>
-                          <ul class="list-unstyled">
-                            <li>- Ice cream marshmallow</li>
-                            <li>- Plum caramels fruitcake</li>
-                            <li>- Chocolate bar carrot cake</li>
-                            <li>- Danish brownie fruitcake tootsie</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1 position-relative justify-content-center">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                    </div>
-                    <div class="col mb-4">
-                      <div class="h-100">
-                        <div class="d-flex flex-column">
-                          <p class="heading">04. Conclusion</p>
-                          <ul class="list-unstyled">
-                            <li>- Chocolate bar carrot cake</li>
-                            <li>- Danish brownie fruitcake tootsie</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1 position-relative justify-content-center">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                    </div>
-                    <div class="col mb-4">
-                      <div class="h-100">
-                        <div class="d-flex flex-column">
-                          <p class="heading">05. What is Next?</p>
-                          <ul class="list-unstyled">
-                            <li>- Danish brownie fruitcake tootsie</li>
-                            <li>- Fruitcake tart dessert</li>
-                            <li>- Bar carrot cake</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0">
-                    <div class="col-auto sw-1 d-flex flex-column justify-content-center align-items-center position-relative me-4">
-                      <div class="w-100 d-flex sh-1 position-relative justify-content-center">
-                        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
-                      </div>
-                      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
-                        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
-                      </div>
-                      <div class="w-100 d-flex h-100 justify-content-center position-relative"></div>
-                    </div>
-                    <div class="col">
-                      <div class="h-100">
-                        <div class="d-flex flex-column justify-content-start">
-                          <div class="d-flex flex-column">
-                            <p class="heading">06. Credits</p>
-                            <ul class="list-unstyled">
-                              <li>- Chocolate bar carrot cake</li>
-                              <li>- Danish brownie fruitcake tootsie</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="card-body" id="tableOfContents">
+                  <!-- Dynamic content will be injected here -->
                 </div>
               </div>
               <!-- Table of Contents End -->
+              
 
               <!-- Reviews Start -->
               <h2 class="small-title">Reviews</h2>
@@ -1681,41 +1507,412 @@
     <script src="js/common.js"></script>
     <script src="js/scripts.js"></script>
     <!-- Page Specific Scripts End -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Get the course_id from the URL query parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const courseId = urlParams.get('course_id'); // Get the value of 'course_id'
-        
-        if (courseId) {
-            // Fetch data for the selected course using the course_id
-            fetch(`http://127.0.0.1:8000/courses/${courseId}/`) // API endpoint for the specific course
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Log the course data for inspection
-                    console.log('Course details:', data);
-            
-                    // Populate the course details into the HTML structure
-                    document.getElementById('courseTitle').textContent = data.title; // Set the course title
-                    document.getElementById('courseDescription').textContent = data.description; // Set the description
-                })
-                .catch(error => {
-                    console.error('Error fetching course details:', error);
-                    document.getElementById('courseDescription').textContent = 'Error fetching course data.'; // Error message
-                });
-        } else {
-            console.error('Course ID not found in URL');
-        }
-    });
-    
-    </script>
-    <script src="java/enroll.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<
+  
+<!-- <script>
+  // Utility function to retrieve the authentication token from localStorage
+  function getAuthToken() {
+    const token = localStorage.getItem('access_token');
+    console.log('Access Token:', token); // Debug log for access token
+    return token;
+  }
+
+  // Utility function to fetch the CSRF token
+  async function fetchCSRFToken() {
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+    if (csrfToken) {
+      return csrfToken;
+    } else {
+      // Handle case where CSRF token is not found in the DOM
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith('csrftoken=')) {
+          return cookie.substring('csrftoken='.length);
+        }
+      }
+    }
+    return null;
+  }
+
+  // Extract URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get('course_id');
+  const chapterId = urlParams.get('chapter_id');
+
+  console.log('Course ID:', courseId); // Should print a valid course ID
+  console.log('Chapter ID:', chapterId); // Should print a valid chapter ID
+
+  // Check if courseId is provided in the URL
+  if (courseId) {
+    console.log('Course ID from URL:', courseId);
+
+    // Fetch course details
+    fetch(`http://127.0.0.1:8000/courses/${courseId}/`) // Course details API
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(courseData => {
+        // Update course details in the DOM
+        document.getElementById('courseTitle').textContent = courseData.title || 'Course Title';
+        document.getElementById('courseDescription').textContent = courseData.description || 'No description available';
+
+        // Set up the Enroll button
+        const enrollNowBtn = document.getElementById('enrollNow');
+        enrollNowBtn.setAttribute('data-course-id', courseId);
+
+        enrollNowBtn.addEventListener('click', async function (event) {
+          event.preventDefault(); // Prevent default button behavior
+
+          const courseId = this.getAttribute('data-course-id');
+          console.log('Enroll Now button clicked for Course ID:', courseId);
+
+          try {
+            const csrfToken = await fetchCSRFToken();
+            const authToken = getAuthToken();
+
+            // Check for authentication
+            if (!authToken) {
+              alert('You must be logged in to enroll.');
+              window.location.href = '/login/'; // Redirect to login page if not logged in
+              return;
+            }
+
+            // Build the request body
+            const requestBody = JSON.stringify({ course_id: courseId });
+
+            // POST request for enrollment
+            const enrollmentResponse = await fetch(`http://127.0.0.1:8000/courses/${courseId}/enroll/`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`,
+                'X-CSRFToken': csrfToken,
+              },
+              body: requestBody,
+            });
+
+            if (!enrollmentResponse.ok) {
+              console.error('Enrollment Error:', enrollmentResponse.status, enrollmentResponse.statusText);
+              alert('An error occurred during enrollment. Please try again.');
+              return;
+            }
+
+            const enrollmentData = await enrollmentResponse.json();
+            console.log('Enrollment Response:', enrollmentData);
+
+            // Check for errors in the response
+            if (enrollmentData.error) {
+              console.error('Error in response:', enrollmentData.error);
+              alert(enrollmentData.error);
+              return;
+            }
+
+            // Success message and redirection
+            alert('Successfully enrolled in the course!');
+
+            // Corrected navigation to the player page with the course_id
+            window.location.href = `Misc.Player.html?course_id=${courseId}`;
+
+          } catch (error) {
+            console.error('Error during enrollment:', error);
+            alert('An unexpected error occurred. Please try again.');
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching course data:', error);
+        alert('An error occurred while fetching course details.');
+      });
+  } else {
+    console.error('Course ID is missing from the URL');
+    alert('Course ID is missing from the URL.');
+  }
+</script> -->
+
+
+
+
+
+
+
+<div id="courseImagesContainer"></div>
+
+<script>
+  // Array of demo images associated with specific course IDs
+  const demoImages = [
+    { courseId: 1, videoUrl: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*x0d41ns8PTQZz4a3VbMrBg.png" },
+    { courseId: 2, videoUrl: "https://wallpapercg.com/media/ts_orig/22914.webp" },
+    { courseId: 3, videoUrl: "https://www.loginradius.com/blog/static/6ee159acf6c294342ec04f86aede5d14/8c3c2/coverImage.jpg" },
+    { courseId: 4, videoUrl: " https://i.pinimg.com/736x/b7/04/09/b70409f080ad81dc69aea73bde75bcec.jpg"}
+  ];
+
+  // Utility function to retrieve the authentication token from localStorage
+  function getAuthToken() {
+    const token = localStorage.getItem('access_token');
+    console.log('Access Token:', token); // Debug log for access token
+    return token;
+  }
+
+  // Utility function to fetch the CSRF token
+  async function fetchCSRFToken() {
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+    if (csrfToken) {
+      return csrfToken;
+    } else {
+      // Handle case where CSRF token is not found in the DOM
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith('csrftoken=')) {
+          return cookie.substring('csrftoken='.length);
+        }
+      }
+    }
+    return null;
+  }
+
+  // Extract URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get('course_id');
+  const chapterId = urlParams.get('chapter_id');
+
+  console.log('Course ID:', courseId); // Should print a valid course ID
+  console.log('Chapter ID:', chapterId); // Should print a valid chapter ID
+
+  // Check if courseId is provided in the URL
+  if (courseId) {
+    console.log('Course ID from URL:', courseId);
+
+    // Fetch course details
+    fetch(`http://127.0.0.1:8000/courses/${courseId}/`) // Course details API
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(courseData => {
+        // Update course details in the DOM
+        document.getElementById('courseTitle').textContent = courseData.title || 'Course Title';
+        document.getElementById('courseDescription').textContent = courseData.description || 'No description available';
+
+        // Set up the Enroll button
+        const enrollNowBtn = document.getElementById('enrollNow');
+        enrollNowBtn.setAttribute('data-course-id', courseId);
+
+        enrollNowBtn.addEventListener('click', async function (event) {
+          event.preventDefault(); // Prevent default button behavior
+
+          const courseId = this.getAttribute('data-course-id');
+          console.log('Enroll Now button clicked for Course ID:', courseId);
+
+          try {
+            const csrfToken = await fetchCSRFToken();
+            const authToken = getAuthToken();
+
+            // Check for authentication
+            if (!authToken) {
+              alert('You must be logged in to enroll.');
+              window.location.href = '/login/'; // Redirect to login page if not logged in
+              return;
+            }
+
+            // Build the request body
+            const requestBody = JSON.stringify({ course_id: courseId });
+
+            // POST request for enrollment
+            const enrollmentResponse = await fetch(`http://127.0.0.1:8000/courses/${courseId}/enroll/`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`,
+                'X-CSRFToken': csrfToken,
+              },
+              body: requestBody,
+            });
+
+            if (!enrollmentResponse.ok) {
+              console.error('Enrollment Error:', enrollmentResponse.status, enrollmentResponse.statusText);
+              alert('An error occurred during enrollment. Please try again.');
+              return;
+            }
+
+            const enrollmentData = await enrollmentResponse.json();
+            console.log('Enrollment Response:', enrollmentData);
+
+            // Check for errors in the response
+            if (enrollmentData.error) {
+              console.error('Error in response:', enrollmentData.error);
+              alert(enrollmentData.error);
+              return;
+            }
+
+            // Success message and redirection
+            alert('Successfully enrolled in the course!');
+
+            // Corrected navigation to the player page with the course_id
+            window.location.href = `Misc.Player.html?course_id=${courseId}`;
+
+          } catch (error) {
+            console.error('Error during enrollment:', error);
+            alert('An unexpected error occurred. Please try again.');
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching course data:', error);
+        alert('An error occurred while fetching course details.');
+      });
+
+    // Loop through the demoImages array and add the image based on course_id
+    const container = document.getElementById("courseImagesContainer");
+
+    // Find the demo image for the given courseId
+    const courseImage = demoImages.find(image => image.courseId == courseId);
+
+    if (courseImage) {
+      const imgElement = document.createElement("img");
+      imgElement.src = courseImage.videoUrl;
+      imgElement.alt = `Demo Image for Course ID ${courseId}`;
+      imgElement.classList.add("w-100", "h-10-custom", "cover");
+      container.appendChild(imgElement); // Append the image for the matching courseId
+    } else {
+      console.error('No image found for this Course ID');
+    }
+  } else {
+    console.error('Course ID is missing from the URL');
+    alert('Course ID is missing from the URL.');
+  }
+</script>
+<script>
+  // Define the chapters and their content
+  const chapters = [
+    {
+      title: "REACT CHAPTERS",
+      items: [
+        "CHAPTER 1",
+        "CHAPTER 2",
+        "Bar carrot cake",
+        "Snaps muffin macaroon tiramisu",
+        "Ice cream marshmallow",
+        "Plum caramels fruitcake",
+        "Chocolate bar carrot cake",
+        "Cotton candy gummies",
+        "Danish cake gummies jelly"
+      ]
+    },
+    {
+      title: "02. Applications",
+      items: [
+        "Ice cream marshmallow",
+        "Plum caramels fruitcake",
+        "Chocolate bar carrot cake",
+        "Danish brownie fruitcake tootsie",
+        "Fruitcake tart dessert",
+        "Bar carrot cake"
+      ]
+    },
+    {
+      title: "03. Interface",
+      items: [
+        "Ice cream marshmallow",
+        "Plum caramels fruitcake",
+        "Chocolate bar carrot cake",
+        "Danish brownie fruitcake tootsie"
+      ]
+    },
+    {
+      title: "04. Conclusion",
+      items: [
+        "Chocolate bar carrot cake",
+        "Danish brownie fruitcake tootsie"
+      ]
+    },
+    {
+      title: "05. What is Next?",
+      items: [
+        "Danish brownie fruitcake tootsie",
+        "Fruitcake tart dessert",
+        "Bar carrot cake"
+      ]
+    },
+    {
+      title: "06. Credits",
+      items: [
+        "Chocolate bar carrot cake",
+        "Danish brownie fruitcake tootsie"
+      ]
+    }
+  ];
+
+  // Function to create and append each chapter's content dynamically
+  const tableOfContents = document.getElementById('tableOfContents');
+
+  chapters.forEach(chapter => {
+    // Create the structure for each chapter
+    const chapterDiv = document.createElement('div');
+    chapterDiv.classList.add('row', 'g-0');
+
+    // Create the chapter's column for the icon and line
+    const chapterCol = document.createElement('div');
+    chapterCol.classList.add('col-auto', 'sw-1', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center', 'position-relative', 'me-4');
+    chapterCol.innerHTML = `
+      <div class="w-100 d-flex sh-1"></div>
+      <div class="rounded-xl shadow d-flex flex-shrink-0 justify-content-center align-items-center">
+        <div class="bg-gradient-light sw-1 sh-1 rounded-xl position-relative"></div>
+      </div>
+      <div class="w-100 d-flex h-100 justify-content-center position-relative">
+        <div class="line-w-1 bg-separator h-100 position-absolute"></div>
+      </div>
+    `;
     
+    // Create the column for the chapter's content
+    const contentCol = document.createElement('div');
+    contentCol.classList.add('col', 'mb-4');
+    contentCol.innerHTML = `
+      <div class="h-100">
+        <div class="d-flex flex-column justify-content-start">
+          <div class="d-flex flex-column">
+            <p class="heading">${chapter.title}</p>
+            <ul class="list-unstyled">
+              ${chapter.items.map(item => `<li>- ${item}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Append both columns to the chapter div
+    chapterDiv.appendChild(chapterCol);
+    chapterDiv.appendChild(contentCol);
+    
+    // Append the chapter div to the Table of Contents container
+    tableOfContents.appendChild(chapterDiv);
+  });
+</script>
+
+<!-- Optional: Include external JS files -->
+<!-- <script src="Java/enroll.js"></script> -->
+<script src="Java/csrf.js"></script>
+<script src="Java/model.js"></script>
+
+
+
+
+
+
+<!-- Optional: Include external JS files -->
+<!-- <script src="Java/enroll.js"></script> -->
+
+<!-- <script src="Java/enroll.js"></script>   --> 
+  <script src="Java/csrf.js"></script>  
+
   </body>
 </html>
+ 

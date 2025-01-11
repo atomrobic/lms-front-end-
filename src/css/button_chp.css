@@ -1,0 +1,94 @@
+.arrow-btn {
+  position: relative;
+  padding-left: 2.5rem; /* Space for the arrow */
+  padding-right: 2.5rem; /* Space for the arrow */
+}
+
+#prevChapterBtn::before {
+  content: '\2190'; /* Left arrow symbol */
+  position: absolute;
+  left: 0.5rem;
+  font-size: 1.2rem;
+  color: #0d6efd; /* Match button color */
+}
+
+#nextChapterBtn::after {
+  content: '\2192'; /* Right arrow symbol */
+  position: absolute;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  color: white; /* Match button color */
+}
+#chapterDetails {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 2rem; /* Padding around the content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  #chapterTitle {
+    font-size: 2rem; /* Adjust title size */
+    color: #606972; /* Primary color for the title */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Space below the title */
+  }
+  
+  #chapterDescription {
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    color: #6c757d; /* Muted text color */
+    line-height: 1.6; /* Line height for better readability */
+    margin-top: 0.5rem; /* Space above the description */
+  }
+  #chapterDetails {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  
+  #chapterDetails:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    transform: translateY(-5px); /* Slightly move up on hover */
+  }
+  
+  #chapterTitle {
+    font-size: 2rem;
+    color: #dee1e3;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase; /* Uppercase title */
+    letter-spacing: 1px; /* Add some space between letters */
+    transition: color 0.3s ease; /* Smooth color change */
+  }
+  
+  #chapterTitle:hover {
+    color: #e5e9ed; /* Darken title color on hover */
+  }
+  
+  #chapterDescription {
+    font-size: 1.1rem;
+    color: #0a72cc;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+    /* Modal Positioning */
+.modal-right .modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 350px; /* Adjust the width as needed */
+    height: 100%;
+    max-width: 100%;
+  }
+  
+  .modal-dialog.modal-dialog-end {
+    right: 0;
+  }
+  
+  /* Optional: If you want to add a subtle background effect */
+  .modal-backdrop {
+    z-index: 1030 !important;
+  }
+  

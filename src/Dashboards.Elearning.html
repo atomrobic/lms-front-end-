@@ -417,124 +417,13 @@
               <h2 class="small-title">Continue Learning</h2>
               <div class="scroll-out">
                 <div class="scroll-by-count" data-count="3">
-                  <div class="card mb-2">
-                    <div class="row g-0 sh-14">
-                      <div class="col-auto">
-                        <a href="Course.Detail.html" class="d-block position-relative h-100">
-                          <img src="img/course/small/course-1.webp" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
-                        </a>
-                      </div>
-                      <div class="col">
-                        <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
-                          <div class="w-100">
-                            <div class="d-flex flex-row justify-content-between mb-2">
-                              <a href="Course.Detail.html" class="font-heading mb-1">React Web Developer Course</a>
-                              <div class="text-muted">67%</div>
-                            </div>
-                            <div class="progress mb-2">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card mb-2">
-                    <div class="row g-0 sh-14">
-                      <div class="col-auto">
-                        <a href="Course.Detail.html" class="d-block position-relative h-100">
-                          <img src="img/course/small/course-2.webp" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
-                        </a>
-                      </div>
-                      <div class="col">
-                        <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
-                          <div class="w-100">
-                            <div class="d-flex flex-row justify-content-between mb-2">
-                              <a href="Course.Detail.html" class="font-heading mb-1">Python: From Zero to Expert</a>
-                              <div class="text-muted">85%</div>
-                            </div>
-                            <div class="progress mb-2">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card mb-2">
-                    <div class="row g-0 sh-14">
-                      <div class="col-auto">
-                        <a href="Course.Detail.html" class="d-block position-relative h-100">
-                          <img src="img/course/small/course-3.webp" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
-                        </a>
-                      </div>
-                      <div class="col">
-                        <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
-                          <div class="w-100">
-                            <div class="d-flex flex-row justify-content-between mb-2">
-                              <a href="Course.Detail.html" class="font-heading mb-1">Learn and Understand NodeJS</a>
-                              <div class="text-muted">14%</div>
-                            </div>
-                            <div class="progress mb-2">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card mb-2">
-                    <div class="row g-0 sh-14">
-                      <div class="col-auto">
-                        <a href="Course.Detail.html" class="d-block position-relative h-100">
-                          <img src="img/course/small/course-4.webp" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
-                        </a>
-                      </div>
-                      <div class="col">
-                        <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
-                          <div class="w-100">
-                            <div class="d-flex flex-row justify-content-between mb-2">
-                              <a href="Course.Detail.html" class="font-heading mb-1">HTML 5 - The Complete Guide</a>
-                              <div class="text-muted">63%</div>
-                            </div>
-                            <div class="progress mb-2">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card mb-2">
-                    <div class="row g-0 sh-14">
-                      <div class="col-auto">
-                        <a href="Course.Detail.html" class="d-block position-relative h-100">
-                          <img src="img/course/small/course-5.webp" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
-                        </a>
-                      </div>
-                      <div class="col">
-                        <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
-                          <div class="w-100">
-                            <div class="d-flex flex-row justify-content-between mb-2">
-                              <a href="Course.Detail.html" class="font-heading mb-1">Getting Started with Gulpjs</a>
-                              <div class="text-muted">36%</div>
-                            </div>
-                            <div class="progress mb-2">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <!-- Dynamic course cards will be inserted here -->
                 </div>
               </div>
             </div>
             <!-- Continue Learning End -->
+          </div>
+          
 
             <!-- Recommended Courses Start -->
             <div class="col-xl-6 mb-5">
@@ -1601,5 +1490,116 @@
     <script src="js/common.js"></script>
     <script src="js/scripts.js"></script>
     <!-- Page Specific Scripts End -->
-  </body>
+     
+<!-- Page Specific Scripts End -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const courseId = 4;  // Example course ID
+    const chapterId = 1; // Example chapter ID
+  
+    // Get CSRF token from cookie
+    function getCSRFToken() {
+      const csrfToken = document.cookie.match(/csrftoken=([\w-]+)/);
+      return csrfToken ? csrfToken[1] : '';
+    }
+  
+    // Function to get the auth token from localStorage
+    function getAuthToken() {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        console.error('Authentication token is missing');
+        // Redirect to login page if token is missing
+        window.location.href = '/login'; // Replace '/login' with your actual login route
+      }
+      return token;
+    }
+  
+    // Function to fetch progress data
+    function fetchProgress() {
+      const csrfToken = getCSRFToken();  // Get the CSRF token from cookies
+      const authToken = getAuthToken();  // Get the auth token from localStorage
+  
+      fetch(`http://127.0.0.1:8000/courses/${courseId}/chapters/${chapterId}/progress/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${authToken}`, // Send the auth token in the header
+          'X-CSRFToken': csrfToken, // Adding CSRF token to header
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the response as JSON
+      })
+      .then(data => {
+        if (data.progress) {
+          updateProgress(data.progress);
+        } else {
+          console.error('No progress data found');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching progress:', error);
+      });
+    }
+  
+    // Function to update progress in UI
+    function updateProgress(progress) {
+      const courses = [
+        { title: 'React Web Developer Course', image: 'img/course/small/course-1.webp', progress: progress.rating_5 },
+        { title: 'Python: From Zero to Expert', image: 'img/course/small/course-2.webp', progress: progress.rating_4 },
+        { title: 'Learn and Understand NodeJS', image: 'img/course/small/course-3.webp', progress: progress.rating_3 },
+        { title: 'HTML 5 - The Complete Guide', image: 'img/course/small/course-4.webp', progress: progress.rating_2 },
+        { title: 'Getting Started with Gulpjs', image: 'img/course/small/course-5.webp', progress: progress.rating_1 }
+      ];
+  
+      const courseContainer = document.querySelector('.scroll-by-count');
+  
+      // Clear existing courses (if needed)
+      courseContainer.innerHTML = '';
+  
+      // Dynamically add courses
+      courses.forEach(course => {
+        const progressPercentage = course.progress || 0; // Default to 0 if no progress data is available
+  
+        const courseCard = `
+          <div class="card mb-2">
+            <div class="row g-0 sh-14">
+              <div class="col-auto">
+                <a href="Course.Detail.html" class="d-block position-relative h-100">
+                  <img src="${course.image}" alt="alternate text" class="card-img card-img-horizontal sw-14 sw-lg-18" />
+                </a>
+              </div>
+              <div class="col">
+                <div class="card-body pt-0 pb-0 h-100 d-flex align-items-center">
+                  <div class="w-100">
+                    <div class="d-flex flex-row justify-content-between mb-2">
+                      <a href="Course.Detail.html" class="font-heading mb-1">${course.title}</a>
+                      <div class="text-muted">${progressPercentage}%</div>
+                    </div>
+                    <div class="progress mb-2">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="${progressPercentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${progressPercentage}%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+  
+        // Append the course card to the container
+        courseContainer.innerHTML += courseCard;
+      });
+    }
+  
+    // Fetch progress on page load
+    fetchProgress();
+  });
+
+  </script>
+  <script src="Java/csrf.js"></script>
+
+    </body>
 </html>

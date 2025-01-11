@@ -1,0 +1,7 @@
+.course-title {
+    font-weight: bold; /* Make the text bold */
+    color: #8a939c; /* Dark blue color */
+    text-transform: uppercase; /* Make text uppercase */
+    letter-spacing: 1.5px; /* Add space between letters */
+  }
+  
